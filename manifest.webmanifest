@@ -1,1 +1,1 @@
-{"name":"SIAL Basket PWA LAB v0.6 corregida","short_name":"SIAL LAB","start_url":"./index.html","display":"standalone","orientation":"landscape","background_color":"#101923","theme_color":"#062a57","icons":[{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any"}]}
+{"name": "SIAL Basket PWA LAB v0.14", "short_name": "SIAL LAB", "start_url": "./index.html", "display": "standalone", "orientation": "landscape", "background_color": "#101923", "theme_color": "#062a57", "icons": [{"src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]}
