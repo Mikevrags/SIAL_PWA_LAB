@@ -1,0 +1,1 @@
+const CACHE='sial-lab-v09-sust';self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['./','./index.html','./manifest.webmanifest','./icon.svg','./ROSTERS_EJEMPLO_SIN_JUGADORES.json']))));self.addEventListener('fetch',e=>e.respondWith(caches.match(e.request).then(r=>r||fetch(e.request))));
