@@ -1,1 +1,18 @@
-{"name": "SIAL Basket PWA LAB v0.20", "short_name": "SIAL LAB", "start_url": "./index.html", "display": "standalone", "orientation": "landscape", "background_color": "#101923", "theme_color": "#062a57", "icons": [{"src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any"}]}
+{
+  "name": "SIAL BASKET LAB v0.34 — Android",
+  "short_name": "SIAL LAB",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#101923",
+  "theme_color": "#062a57",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
