@@ -1,7 +1,7 @@
 {
-  "name": "SIAL Basket PWA LAB v0.37",
-  "short_name": "SIAL v0.37",
-  "start_url": "./index.html?v=037",
+  "name": "SIAL Basket PWA LAB v0.40",
+  "short_name": "SIAL v0.40",
+  "start_url": "./index.html?v=040",
   "scope": "./",
   "display": "standalone",
   "orientation": "landscape",
