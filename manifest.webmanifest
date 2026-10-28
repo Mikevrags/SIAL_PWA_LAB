@@ -1,7 +1,7 @@
 {
-  "name": "SIAL BASKET LAB v0.35 — Android",
-  "short_name": "SIAL LAB",
-  "start_url": "./index.html",
+  "name": "SIAL Basket PWA LAB v0.36",
+  "short_name": "SIAL v0.36",
+  "start_url": "./index.html?v=036",
   "scope": "./",
   "display": "standalone",
   "orientation": "landscape",
