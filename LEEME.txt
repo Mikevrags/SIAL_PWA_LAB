@@ -1,0 +1,11 @@
+SIAL BASKET v0.46 — LABORATORIO TECNICO / NO APTO PARA CAMPO J6
+Base visual: v0.43, sin sustituir pantallas congeladas.
+Incluye: logotipo, LOGIN bilingüe, inicio A1, Delegado-Aux único por equipo,
+secuencias preliminares de faltas, intentos TL, conteo de faltas de equipo,
+alertas de quinta falta / acumulaciones y bloqueo de avance de cuarto con tiempo restante.
+NO VERIFICADO: navegación visual A1-A3 en tablet, reglas árbitros por categoría,
+uso offline real, importación J6 con rosters, sesiones offline y sincronización.
+No se debe usar en partidos oficiales ni en J6 sin pruebas y validación.
+EJECUTAR EN PC: python server.py y abrir http://127.0.0.1:8765/
+Conservar por separado sial_auth_lab.sqlite3. Nunca eliminar la base existente.
+No se han modificado archivos SDC ni MASTER.
