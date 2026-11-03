@@ -1,0 +1,1 @@
+v0.46.2: corrige pantalla vacía: el body conservaba clase sial-locked de la autenticación retirada. Incrementa versión de caché PWA. No cambia A1/A2/A3.
