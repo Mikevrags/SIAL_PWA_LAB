@@ -1,0 +1,1 @@
+SIAL v0.46.3 LAB: botones táctiles de foules, A1 3x3, Delegado-Aux, CAMBIOS oficiales. No validado en Android. No usar como acta oficial. Importación J6 y offline requieren pruebas.
