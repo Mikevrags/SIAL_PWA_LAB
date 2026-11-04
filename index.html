@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#062a57" name="theme-color"/><link href="manifest.webmanifest" rel="manifest"/><title>SIAL BASKET · v0.46.8 · A1 A2 A3</title><style>
+<html lang="es"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="#062a57" name="theme-color"/><link href="manifest.webmanifest" rel="manifest"/><title>SIAL BASKET · v0.46.9 · A1 A2 A3</title><style>
 :root{font-family:system-ui,Arial;background:#101923;color:white}*{box-sizing:border-box}body{margin:0}header{background:#062a57;border-bottom:3px solid #f7c600;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}h1{font-size:20px;margin:0}h2{font-size:15px;margin:0 0 10px}small,.hint{color:#b8c5d7}main{padding:12px;max-width:1500px;margin:auto}button,select,input{font:inherit;border-radius:7px;padding:9px;border:1px solid #60738b}button{background:#0b4aa2;color:white;cursor:pointer;font-weight:700}button:disabled{opacity:.45;cursor:not-allowed}button.gold{background:#f7c600;color:#172032}button.danger{background:#a12d35}select,input{background:#f9fbff;color:#172032;max-width:100%}.bar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin-bottom:12px}.panel{background:#1d2a3a;border:1px solid #364a61;border-radius:12px;padding:12px}.cols{display:grid;grid-template-columns:minmax(180px,1fr) minmax(280px,1.4fr) minmax(180px,1fr);gap:10px}.teamname{font-size:16px;color:#f7c600;font-weight:800;min-height:50px}.player{display:flex;width:100%;align-items:center;text-align:left;gap:8px;background:#2a3b50;margin:5px 0;overflow-wrap:anywhere}.player.active{outline:3px solid #f7c600}.num{background:#0b4aa2;border-radius:5px;padding:5px;min-width:32px;text-align:center}.score{text-align:center;font-size:clamp(32px,6vw,68px);font-weight:900}.clock{text-align:center;font-size:36px;font-variant-numeric:tabular-nums;color:#f7c600}.actions{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.actions button{min-height:55px}.log{max-height:280px;overflow:auto;font-size:12px}.log div{padding:6px;border-bottom:1px solid #384b60}.warning{background:#594a18;padding:10px;border-radius:8px;color:#ffe89b}.tag{font-size:12px;color:#c8d6e5}.scoreRow{display:flex;justify-content:center;gap:20px}.muted{opacity:.75}@media(max-width:750px){.cols{grid-template-columns:1fr 1fr}.middle{grid-column:1/-1;grid-row:1}.teamname{font-size:13px;min-height:65px}.actions button{min-height:48px}header h1{font-size:16px}}@media(max-height:520px) and (orientation:landscape){header{padding:5px 10px}main{padding:5px}.panel{padding:6px}.clock{font-size:25px}.score{font-size:36px}.player{padding:4px}.actions button{min-height:35px;padding:4px}.log{max-height:90px}}
 /* v0.4: pantalla de operación fija, sin zoom manual */
 html,body{height:100%;overflow:hidden}body{display:flex;flex-direction:column}header{flex:0 0 auto;min-height:46px;padding:6px 12px;flex-wrap:nowrap}header small{display:none}header h1{font-size:clamp(12px,1.4vw,18px)}main{flex:1;min-height:0;width:100%;max-width:none;padding:5px 8px;display:flex;flex-direction:column;gap:5px;overflow:hidden}.bar{margin:0;gap:5px;flex:0 0 auto}.bar button,.bar select{padding:5px;font-size:clamp(10px,1vw,13px)}#notice{display:none!important}.hint{display:none}.cols{flex:1;min-height:0;grid-template-columns:minmax(110px,22%) minmax(220px,1fr) minmax(110px,22%);gap:6px}.panel{min-height:0;padding:6px;overflow:hidden;display:flex;flex-direction:column}.teamname{min-height:0;font-size:clamp(10px,1.1vw,14px);line-height:1.1;margin-bottom:3px}.player{font-size:clamp(10px,1.05vw,14px);padding:4px;margin:3px 0;min-height:0;flex:1}.player small{display:none}.num{padding:3px;min-width:25px}.score{font-size:clamp(20px,4vh,36px);line-height:1.1}.clock{font-size:clamp(19px,4vh,32px);line-height:1.1}.scoreRow{font-size:12px;gap:8px}.actions{grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;flex:0 0 auto}.actions button{min-height:0;padding:5px 2px;font-size:clamp(10px,1vw,13px)}.log{max-height:none;min-height:0;flex:1;overflow:auto}.log div{padding:3px}.middle h2{margin:4px 0 2px!important;font-size:12px}.middle .bar{margin:2px 0}.viewtabs{display:flex;gap:5px;flex:0 0 auto}.viewtabs button{padding:4px 12px;font-size:12px}.viewtabs button.active{background:#f7c600;color:#172032}.court{flex:1;min-height:0;position:relative;border:2px solid #a37d4a;border-radius:6px;background:repeating-linear-gradient(90deg,#c99c64 0 18%,#d2a872 18% 36%);touch-action:manipulation;overflow:hidden}.court:before{content:'';position:absolute;left:50%;top:0;bottom:0;border-left:2px solid #fff9}.court:after{content:'';position:absolute;left:50%;top:50%;width:min(25vh,25%);aspect-ratio:1;border:2px solid #fff9;border-radius:50%;transform:translate(-50%,-50%)}.courtmark{position:absolute;width:12px;height:12px;border-radius:50%;background:#f7c600;border:2px solid #152438;transform:translate(-50%,-50%);z-index:3}.a3layout{display:none;flex:1;min-height:0;gap:6px}.a3layout .court{flex:2}.a3side{flex:1;min-width:110px;background:#1d2a3a;border-radius:8px;padding:8px;overflow:auto}.a3side p{font-size:12px}.view-a3 .cols{display:none}.view-a3 .a3layout{display:flex}.view-a1 .middle .actions,.view-a1 .middle .log,.view-a1 .middle h2{display:none}.view-a1 .middle:after{content:'A1 · Revisar partido y rosters. Importar JSON antes de capturar.';font-size:13px;color:#b8c5d7;text-align:center;padding:12px}
@@ -635,7 +635,7 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
 #sialPickLayer{position:fixed;inset:0;background:#000b;z-index:2147483645;display:flex;align-items:center;justify-content:center;padding:16px}
 #sialPickLayer[hidden]{display:none!important}.sial-pick-dialog{background:#142338;color:white;border:2px solid #4d86bc;border-radius:14px;padding:20px;width:min(760px,96vw);max-height:90dvh;overflow:auto;box-shadow:0 15px 55px #000c}.sial-pick-dialog h2{margin:0 0 12px;font-size:clamp(20px,2.4vw,28px)}.sial-pick-sub{color:#c8d6e6;font-size:16px}.sial-pick-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sial-pick-options button{min-height:65px;background:#07549a;border:1px solid #7ab3e5;border-radius:9px;color:white;font-weight:800;font-size:clamp(15px,2vw,22px)}.sial-pick-options button:active{background:#e7ad00;color:#081d35}.sial-pick-footer{display:flex;justify-content:flex-end;margin-top:15px}.sial-pick-cancel{background:#45566b;color:white;padding:10px 25px;border-radius:8px}.sial-edit-id,.sial-edit-name{display:block;width:95%;margin:5px 0;background:#071b31!important;color:white!important;border:1px solid #71a9d8;padding:7px;border-radius:6px}
 </style><style id="v0466-frozen-controls">#extraActions #finishGame[hidden]{display:none!important}.actions-panel .secondary-controls #start{background:#f7c600;color:#09223d;font-weight:900}.actions-panel .actions #extraActions:not([hidden]){grid-template-columns:repeat(3,minmax(0,1fr))!important}</style></head><body>
-<header><div><img src="sial-logo.png" alt="Logo SIAL" style="height:40px;max-width:55px;object-fit:contain;float:left;margin-right:8px"><h1>SIAL BASKET · v0.46.8</h1><small>Pruebas sin login · Datos locales · NO OFICIAL</small></div><div class="possession-hud"><button id="posA" class="pos-arrow" title="Posesión alterna A" aria-label="Posesión alterna A">◀</button><button id="posB" class="pos-arrow" title="Posesión alterna B" aria-label="Posesión alterna B">▶</button></div><span class="hud-side" id="hudA"><b id="hudTeamA">EQUIPO A</b><small>F.E. <strong id="foulsA">0</strong> · T.M. <strong id="timeoutsA">0</strong></small></span><span class="hud-side" id="hudB"><b id="hudTeamB">EQUIPO B</b><small>F.E. <strong id="foulsB">0</strong> · T.M. <strong id="timeoutsB">0</strong></small></span><span id="saveStatus">Guardado local</span><div class="match-hud"><div class="score" id="score">0 — 0</div><span id="period">CUARTO 1</span><div class="clock" id="clock">10:00</div></div></header><div id="quarterEndNotice" hidden role="status">FIN DE CUARTO</div><main>
+<header><div><img src="sial-logo.png" alt="Logo SIAL" style="height:40px;max-width:55px;object-fit:contain;float:left;margin-right:8px"><h1>SIAL BASKET · v0.46.9</h1><small>Pruebas sin login · Datos locales · NO OFICIAL</small></div><div class="possession-hud"><button id="posA" class="pos-arrow" title="Posesión alterna A" aria-label="Posesión alterna A">◀</button><button id="posB" class="pos-arrow" title="Posesión alterna B" aria-label="Posesión alterna B">▶</button></div><span class="hud-side" id="hudA"><b id="hudTeamA">EQUIPO A</b><small>F.E. <strong id="foulsA">0</strong> · T.M. <strong id="timeoutsA">0</strong></small></span><span class="hud-side" id="hudB"><b id="hudTeamB">EQUIPO B</b><small>F.E. <strong id="foulsB">0</strong> · T.M. <strong id="timeoutsB">0</strong></small></span><span id="saveStatus">Guardado local</span><div class="match-hud"><div class="score" id="score">0 — 0</div><span id="period">CUARTO 1</span><div class="clock" id="clock">10:00</div></div></header><div id="quarterEndNotice" hidden role="status">FIN DE CUARTO</div><main>
 <div class="bar" id="importBar"><label>Partido <select id="game"></select></label><button id="loadRoster">Importar jornada (JSON)</button><a href="ROSTERS_EJEMPLO_SIN_JUGADORES.json" download="ROSTERS_EJEMPLO_SIN_JUGADORES.json" style="color:#fff;white-space:nowrap;font-size:12px">Descargar JSON de ejemplo (vacío)</a><input accept=".json,application/json" hidden="" id="rosterFile" type="file" multiple/><button id="export">Exportar acta JSON</button><button id="csv">Exportar eventos CSV</button></div>
 <div class="warning" id="notice" style="margin-bottom:10px">J5: 12 partidos del archivo recibido; J4 se conserva como histórico (J4-6E no se jugó). Los rosters deben importarse; no asignar PersonaID ficticios.</div>
 <nav class="viewtabs"><button data-view="a1">A1 · Inicio</button><button class="active" data-view="a2">A2 · Game Log</button><button data-view="a3">A3 · Cancha</button><span id="gameSlot"></span></nav><div class="cols"><section class="panel rosters-panel"><div class="teamname" id="team0"></div><div class="tag" id="status0"></div><div id="roster0"></div><div class="teamname" id="team1"></div><div class="tag" id="status1"></div><div id="roster1"></div></section>
@@ -702,7 +702,7 @@ for(let t=0;t<2;t++){
 $('finishGame').hidden=!(state.period>=Number($('quarters')?.value||4)&&state.seconds===0); const qNotice=$('quarterEndNotice'); if(qNotice){qNotice.hidden=state.seconds!==0;qNotice.textContent='FIN DEL '+state.period+'º CUARTO';}
 $('periodBanner').textContent=({1:'PRIMER PERIODO',2:'SEGUNDO PERIODO',3:'TERCER PERIODO',4:'CUARTO PERIODO'})[state.period]||('PERIODO '+state.period);
 $('log').innerHTML='<div class="period-inline">'+esc($('periodBanner').textContent)+'</div>'+state.events.slice().reverse().map((e,idx,arr)=>(idx===0||arr[idx-1].periodo===e.periodo?'':'<div class="period-inline past-period">'+esc(({1:'PRIMER PERIODO',2:'SEGUNDO PERIODO',3:'TERCER PERIODO',4:'CUARTO PERIODO'})[e.periodo]||('PERIODO '+e.periodo))+'</div>')+'<div class="log-entry"><span>'+esc(e.numero)+'</span><span>'+String(e.periodo).padStart(2,'0')+'</span><span class="eq eq'+(e.team===1?'b':'a')+'">'+(e.team===1?'B':'A')+'</span><span>'+esc(e.dorsal||'-')+'</span><span class="event-text" title="'+esc(e.accion)+'">'+esc(({LIBRE_ANOTADO:'Libre anotado',LIBRE_FALLADO:'Libre fallado',DOBLE_ANOTADO:'2 puntos anotados',TRIPLE_ANOTADO:'3 puntos anotados',FALTA:'Falta personal',FALTA_TECNICA:'Falta técnica',SUSTITUCION:'Sustitución',TIEMPO_FUERA:'Tiempo fuera'})[e.accion]||e.accion)+(e.accion==='SUSTITUCION'?' (sale #'+esc(e.sale_dorsal)+')':'')+(e.accion==='TIEMPO_FUERA'?' #'+esc(e.numero_tiempo_fuera||'?'):'')+'</span><span>'+esc(e.tiempo)+'</span></div>').join('');}
-// SIAL v0.46.8: asistente táctil de faltas; no usa prompt().
+// SIAL v0.46.9: asistente táctil de faltas; no usa prompt().
 let foulBusy=false;
 function sialPick(title,options,{cancel=true,subtitle=''}={}){
  return new Promise(resolve=>{
@@ -774,7 +774,7 @@ async function v46FoulSequence(action){
 }
 function record(action,points=0){if(activeView==='a3'){alert('A3 solo registra estadística local; Game Log bloqueado.');return;}if(action==='TIEMPO_FUERA'){requestTimeOut();return;}if(action==='FALTA'||action==='FALTA_TECNICA'){v46FoulSequence(action);return;}if(state.seconds===0){alert("Cuarto terminado: captura bloqueada. Confirma el siguiente cuarto. Secuencia de falta pendiente: aún no implementada.");return;}if(!selection && action!=='TIEMPO_FUERA'){alert('Selecciona primero un jugador');return;}let team=selection?.team??Number(prompt('Equipo para tiempo fuera: 1 o 2','1'))-1;if(team!==0&&team!==1)return;let p=selection?.player||{};state.events.push({id:crypto.randomUUID?crypto.randomUUID():Date.now()+'-'+Math.random(),numero:state.events.length+1,id_game:game.id,equipo:game.teams[team],team,persona_id:p.persona_id||null,id_provisional:p.id_provisional||null,dorsal:p.dorsal||'',jugador:p.nombre||'',accion:action,points,periodo:state.period,tiempo:$('clock').textContent,registrado:new Date().toISOString(),posicion:state.pendingPosition||null});state.pendingPosition=null;save();render();}
 $('game').innerHTML=games.map(g=>'<option value="'+esc(g.id)+'">'+esc('J'+(g.jornada||Number((g.id.match(/-J(\d+)-/)||[])[1])||4)+' | '+((g.id.match(/-J\d+-([^-]+)-/)||[])[1]||'SIN NÚMERO')+' | '+g.time+' | '+g.teams.join(' vs '))+'</option>').join('');$('game').onchange=switchGame;document.getElementById('gameSlot').appendChild(document.querySelector('#importBar label'));document.getElementById('importBar').insertAdjacentHTML('beforeend','<button type="button" id="restoreDemo">Jugadores LAB</button>');document.getElementById('a1tools').appendChild(document.getElementById('importBar'));document.getElementById('restoreDemo').onclick=restoreDemo;
-// v0.46.8: clic de fotografía gestionado por la capa flotante independiente.
+// v0.46.9: clic de fotografía gestionado por la capa flotante independiente.
 document.addEventListener('click',e=>{
  let sb=e.target.closest('[data-sust]');if(sb){openSust(+sb.dataset.sust);return;}
  let b=e.target.closest('.player');if(b){if(activeView==='a3'){return;}if(activeView==='a1'&&e.target.closest('.player-photo')){b.classList.toggle('photo-open');return;}let t=+b.dataset.team,j=+b.dataset.index;
@@ -784,7 +784,7 @@ document.addEventListener('click',e=>{
 document.querySelectorAll('[data-points]').forEach(b=>b.onclick=()=>record(+b.dataset.points===1?'LIBRE_ANOTADO':(+b.dataset.points===2?'DOBLE_ANOTADO':'TRIPLE_ANOTADO'),+b.dataset.points));document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>record(b.dataset.action));
 $('moreActions').onclick=()=>{const p=$('extraActions');p.hidden=!p.hidden;$('moreActions').textContent=p.hidden?'MÁS ACCIONES ▾':'MÁS ACCIONES ▴';};
 $('undo').onclick=async()=>{if(state.events.length&&await sialConfirm('¿Deshacer último evento?')){state.events.pop();save();render();}};
-$('start').onclick=async()=>{if(timeOutTimer){alert('Tiempo fuera en curso');return;}if(interval){stop();return;}if(state.seconds<=0){if(!await sialConfirm('El reloj está en 00:00. ¿Reiniciar el reloj del período?'))return;stop();state.seconds=Number($('minutes').value||10)*60;save();render();return;}$('start').textContent='⏸ Pausar';interval=setInterval(()=>{state.seconds=Math.max(0,state.seconds-1);save();render();if(!state.seconds)stop();},1000);};
+$('start').onclick=async()=>{if(timeOutTimer){alert('Tiempo fuera en curso');return;}if(interval){stop();return;}if(state.seconds<=0){if(!await sialConfirm('El reloj está en 00:00. ¿Reiniciar el reloj del período?'))return;stop();state.seconds=Number($('minutes').value||10)*60;save();render();return;}startGameClock();};
 $('clockReset').onclick=async()=>{if(timeOutTimer){alert('Tiempo fuera en curso');return;}const duration=Number($('minutes').value||10)*60;if(await sialConfirm('¿Reiniciar reloj a '+Math.floor(duration/60)+':00?')){stop();state.seconds=duration;save();render();}};
 $('periodPlus').onclick=async()=>{if(state.seconds>0){alert('TODAVÍA NO TERMINA EL TIEMPO DEL PERIODO');return;}if(timeOutTimer){alert('Tiempo fuera en curso');return;}if(state.period>=Number($('quarters')?.value||4)){alert('Tiempo extra pendiente de configurar');return;}if(await sialConfirm('¿Avanzar al siguiente cuarto?')){stop();state.period++;state.seconds=Number($('minutes').value||10)*60;document.getElementById('period').classList.remove('quarter-flash');void document.getElementById('period').offsetWidth;document.getElementById('period').classList.add('quarter-flash');save();render();}};
 $('reset').onclick=async()=>{if(await sialConfirm('Se borrará la captura local de ESTE partido. ¿Continuar?')){cancelTimeOut(false);stop();state=initial();selection=null;save();render();}};
@@ -856,15 +856,28 @@ function timeOutCounts(){
  for(const e of state.events){if(e.accion==='TIEMPO_FUERA'&&policy.periods.includes(e.periodo)&&(e.team===0||e.team===1))counts[e.team]++;}
  return counts;
 }
+let timeOutEndsAt=0;
 function updateTimeOutButton(){
- timeOutButton.textContent=timeOutTimer?String(timeOutRemaining).padStart(2,'0'):'TIEMPO FUERA';
+ timeOutButton.textContent=timeOutTimer?'TIEMPO FUERA':'TIEMPO FUERA';
  timeOutButton.classList.toggle('timeout-running',!!timeOutTimer);
+ const panel=document.getElementById('sialTimeoutClock');
+ if(panel){panel.hidden=!timeOutTimer;panel.textContent=String(Math.max(0,timeOutRemaining)).padStart(2,'0');}
+}
+function startGameClock(){
+ if(interval||timeOutTimer||state.seconds<=0)return false;
+ const arb=document.getElementById('sialArbNotice');if(arb)arb.hidden=true;
+ $('start').textContent='⏸ Pausar';
+ interval=setInterval(()=>{state.seconds=Math.max(0,state.seconds-1);save();render();if(!state.seconds)stop();},1000);
+ return true;
 }
 function cancelTimeOut(resume){
+ const wasRunning=!!timeOutTimer;
  if(timeOutTimer){clearInterval(timeOutTimer);timeOutTimer=null;}
+ timeOutEndsAt=0;
  updateTimeOutButton();
- if(resume&&timeOutResume&&state.seconds>0&&!interval){$('start').click();}
  timeOutResume=false;
+ // Al concluir la cuenta regresiva, reanudar el partido sin depender de un click sintético.
+ if(resume&&wasRunning&&state.seconds>0&&!interval)startGameClock();
 }
 function requestTimeOut(){
  if(timeOutTimer){alert('Tiempo fuera en curso: '+timeOutRemaining+' s');return;}
@@ -881,7 +894,8 @@ function confirmTimeOut(team){
  const number=counts[team]+1;
  state.events.push({id:Date.now()+'-TF-'+Math.random(),numero:state.events.length+1,id_game:game.id,equipo:game.teams[team],team,dorsal:'',jugador:'',accion:'TIEMPO_FUERA',numero_tiempo_fuera:number,points:0,periodo:state.period,tiempo:$('clock').textContent,registrado:new Date().toISOString()});
  save();render();timeOutRemaining=policy.duration;updateTimeOutButton();
- timeOutTimer=setInterval(()=>{timeOutRemaining--;updateTimeOutButton();if(timeOutRemaining<=0){cancelTimeOut(true);}},1000);
+ timeOutEndsAt=Date.now()+policy.duration*1000;
+ timeOutTimer=setInterval(()=>{timeOutRemaining=Math.max(0,Math.ceil((timeOutEndsAt-Date.now())/1000));updateTimeOutButton();if(timeOutRemaining<=0){cancelTimeOut(true);}},250);
 }
 $('timeoutA').onclick=()=>confirmTimeOut(0);$('timeoutB').onclick=()=>confirmTimeOut(1);$('timeoutCancel').onclick=()=>{$('timeoutOverlay').hidden=true;};
 let sustTeam=null,sustOut=[],sustIn=[],sustMultiple=false,forcedSust=null;
@@ -1002,7 +1016,7 @@ sync();
 </script>
 
 
-<style id="v0468-fixes">
+<style id="v0469-fixes">
 /* Retrato flotante independiente: nunca desplaza ni oculta el icono original. */
 #sialPhotoPreview{position:fixed;z-index:2147483000;display:none;box-sizing:border-box;border:3px solid #80c6ff;border-radius:9px;background:#19374e;box-shadow:0 10px 32px #000d;overflow:hidden;cursor:zoom-out;pointer-events:auto}
 #sialPhotoPreview img{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
@@ -1017,7 +1031,7 @@ sync();
  .view-a2 .actions-panel{overflow-y:auto!important;scrollbar-width:thin}
 }
 </style>
-<script id="v0468-photo-overlay">(()=>{
+<script id="v0469-photo-overlay">(()=>{
  const preview=document.createElement('div');preview.id='sialPhotoPreview';preview.setAttribute('role','button');preview.setAttribute('aria-label','Cerrar fotografía ampliada');preview.tabIndex=0;
  const img=document.createElement('img');img.alt='Fotografía ampliada del jugador';preview.appendChild(img);document.body.appendChild(preview);
  let origin=null;
@@ -1052,17 +1066,23 @@ sync();
  document.addEventListener('scroll',()=>requestAnimationFrame(position),true);
  new MutationObserver(()=>{if(origin&&!origin.isConnected)close()}).observe(document.body,{childList:true,subtree:true});
 })();</script>
-<script id="v0468-referee-timeout">(()=>{
+<script id="v0469-referee-timeout">(()=>{
  const b=document.getElementById('timeoutArb');if(!b)return;
  b.addEventListener('click',()=>{
   document.getElementById('timeoutOverlay').hidden=true;
   /* Pausa arbitral: sin descuento de tiempos fuera de los equipos ni temporizador automático. */
   if(typeof stop==='function')stop();
   const clock=document.getElementById('clock')?.textContent||'';
+  const msg=document.getElementById('sialArbNotice');
+  if(msg){msg.hidden=false;msg.textContent='PAUSA ARBITRAL · Reloj detenido · Pulsa INICIAR para reanudar';}
   if(typeof state!=='undefined'&&typeof game!=='undefined'){
    state.events.push({id:'ARB-'+Date.now(),numero:state.events.length+1,id_game:game.id,equipo:'ÁRBITRO',team:null,dorsal:'',jugador:'',accion:'TIEMPO_FUERA_ARBITRO',points:0,periodo:state.period,tiempo:clock,registrado:new Date().toISOString()});
    if(typeof save==='function')save();if(typeof render==='function')render();
   }
  });
 })();</script>
+<style id="sial-v0469-timeout-style">
+#sialTimeoutClock:not([hidden]){position:fixed;z-index:10010;top:18%;left:50%;transform:translateX(-50%);min-width:170px;padding:14px 30px;text-align:center;border:4px solid #f7c600;border-radius:18px;background:#10253f;color:#fff;font-size:clamp(76px,12vw,150px);font-weight:950;line-height:1;font-variant-numeric:tabular-nums;box-shadow:0 10px 30px #000c;pointer-events:none}
+#sialArbNotice:not([hidden]){position:fixed;z-index:10009;left:50%;top:12%;transform:translateX(-50%);max-width:90vw;padding:14px 20px;border:2px solid #f7c600;border-radius:12px;background:#10253f;color:#fff;font-size:clamp(17px,2vw,26px);font-weight:800;text-align:center;pointer-events:none}
+</style><div id="sialTimeoutClock" role="timer" aria-label="Segundos restantes del tiempo fuera" hidden></div><div id="sialArbNotice" role="status" hidden></div>
 </body></html>
