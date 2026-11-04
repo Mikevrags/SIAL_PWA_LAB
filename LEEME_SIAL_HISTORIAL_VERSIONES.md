@@ -70,3 +70,22 @@ Estado: registro de conciliación, 2026-11-03. Este documento no modifica la apl
 - Verificado: sintaxis de scripts JS con Node; NO verificado: ejecución en navegador/tabletas, exactitud arbitral, persistencia offline, importación J6.
 - **Pendiente:** comprobar condiciones especiales de tiempos fuera en últimos dos minutos del cuarto periodo y lógica real de prórrogas; no declarar versión oficial.
 - **Regla de entrega:** este LEEME debe estar en la raíz de cada ZIP de revisión y actualizarse acumulativamente.
+
+
+## v0.46.5 — 2026-11-03
+- Indicador visible **EXP** en la ficha para descalificación directa y acumulación disciplinaria, separado de las cinco marcas de faltas.
+- Quinta falta: se conservan cinco marcas; bloqueo de elegibilidad y sustitución obligatoria.
+- Sustitución obligatoria: jugador saliente preseleccionado y resaltado; solo elegir entrante.
+- A1 (2/3): cada lista de asistente ofrece entrenador, asistente, Sin asistente y Delegado-Aux.
+- Se conservan botones y distribución existentes de A2; la restauración exacta de controles congelados distintos de v0.46.4 requiere cotejo adicional con referencia visual/código.
+- Pendiente prueba funcional real en PC y tabletas; no usar como acta oficial.
+
+
+## v0.46.6 — Recuperación de controles congelados A2 (2026-11-03)
+- Fuente de comparación: `SIAL_PWA_LAB_v44_AJUSTES_ARBITROS_REVISION.zip` y base funcional v0.46.5.
+- A2: **SIGUIENTE CUARTO** y **▶ INICIAR/PAUSAR** en fila inferior; reloj y marcador permanecen en barra superior.
+- **MÁS ACCIONES**: REINICIAR RELOJ, REINICIAR PARTIDO, FINALIZAR PARTIDO (este último visible solo al terminar el tiempo reglamentario).
+- Retirados de MÁS ACCIONES los botones ENTRADA/SALIDA introducidos en versiones posteriores; las sustituciones continúan mediante SUST.
+- Se conservan flechas de continuidad, botones principales, ARB en tiempo fuera, faltas táctiles, marcas de 5 faltas, EXP y sustitución obligatoria de v0.46.5.
+- Se sincronizan título, manifiesto y service worker a v0.46.6.
+- Verificación estática: existencia única de IDs, sintaxis JavaScript y estructura del paquete. Pendiente prueba real en PC y tabletas; no es versión oficial de campo.
