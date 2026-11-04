@@ -89,3 +89,10 @@ Estado: registro de conciliación, 2026-11-03. Este documento no modifica la apl
 - Se conservan flechas de continuidad, botones principales, ARB en tiempo fuera, faltas táctiles, marcas de 5 faltas, EXP y sustitución obligatoria de v0.46.5.
 - Se sincronizan título, manifiesto y service worker a v0.46.6.
 - Verificación estática: existencia única de IDs, sintaxis JavaScript y estructura del paquete. Pendiente prueba real en PC y tabletas; no es versión oficial de campo.
+
+
+## v0.46.7 — Foto ampliada e ícono PWA
+- Foto en A1: ancho de dos fichas y alto de tres; posicionamiento adaptable a PC y tablet, con ajuste al espacio visible.
+- Ícono de instalación PWA: logo transparente de barra de título, 192 y 512 px.
+- Actualizados versión visible, pestaña, manifiesto y caché de service worker.
+- No se modificaron reglas de juego, controles congelados ni datos MASTER.
