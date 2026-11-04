@@ -96,3 +96,12 @@ Estado: registro de conciliación, 2026-11-03. Este documento no modifica la apl
 - Ícono de instalación PWA: logo transparente de barra de título, 192 y 512 px.
 - Actualizados versión visible, pestaña, manifiesto y caché de service worker.
 - No se modificaron reglas de juego, controles congelados ni datos MASTER.
+
+
+## v0.46.8 — Corrección de fotografías, icono y controles táctiles
+- Ampliación fotográfica mediante capa independiente: conserva miniatura original y panel de equipo correcto; tamaño de dos fichas de ancho por tres filas de alto; desde cuarta fila se despliega hacia arriba.
+- Botón ARB restaurado en TIEMPO FUERA: registra pausa arbitral sin consumir tiempos fuera de los equipos ni iniciar cuenta regresiva automática.
+- Botones A2 en tablet horizontal: mínimos táctiles mayores y desplazamiento vertical cuando sea necesario.
+- Manifest y caché actualizados a v0.46.8; iconos PNG del logo transparente de la barra de título.
+- Importante: para que cambie el icono de una PWA ya instalada, puede requerirse desinstalar y volver a instalar.
+- Pendiente: validación visual y funcional en PC y tableta reales. No modifica archivos MASTER.
