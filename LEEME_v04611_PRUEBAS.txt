@@ -1,0 +1,6 @@
+SIAL v0.46.11 - PRUEBA VISUAL
+Base: v0.46.10; respaldo v0.46.9 incluido.
+Cambios: version visible, cache, botones derechos A2, Mas acciones, flechas, controles inferiores, borde amarillo seleccionado y ancho de ventana SUST en celular horizontal.
+Sin cambios intencionales a la logica de partido.
+Pendiente: verificar en PC/tablet/celular antes de congelar.
+Publicacion GitHub: subir archivos del ZIP a raiz del repositorio. No subir index_v0469_RESPALDO.html si ya existe respaldo GitHub.
