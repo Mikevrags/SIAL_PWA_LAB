@@ -105,3 +105,20 @@ Estado: registro de conciliación, 2026-11-03. Este documento no modifica la apl
 - Manifest y caché actualizados a v0.46.8; iconos PNG del logo transparente de la barra de título.
 - Importante: para que cambie el icono de una PWA ya instalada, puede requerirse desinstalar y volver a instalar.
 - Pendiente: validación visual y funcional en PC y tableta reales. No modifica archivos MASTER.
+
+
+## v0.46.9 — 04 noviembre 2026 — REVISIÓN TÉCNICA (PENDIENTE DE PRUEBA EN TABLETA)
+- **Base:** v0.46.8. No se alteraron A1/A2/A3, distribución congelada ni reglas de faltas.
+- **Reanudación:** al terminar el tiempo fuera de equipo, se invoca directamente `startGameClock()` (no clic sintético); reanuda cuando hay tiempo de periodo.
+- **Cuenta regresiva:** indicador flotante de alto contraste y números grandes; cálculo por hora objetivo para evitar deriva del intervalo.
+- **ARB:** pausa reloj, registra `TIEMPO_FUERA_ARBITRO`, sin descuento al equipo ni cuenta regresiva; muestra aviso visible para reanudar manualmente con INICIAR.
+- **Versión:** HTML, manifest y caché de service worker a v0.46.9.
+- **Pruebas estáticas:** sintaxis JS, integridad del ZIP. **Pendiente:** validar cronómetro real, botones, fotografías, icono y orientación en Android/PC.
+- **Riesgos existentes no resueltos:** foto ampliada y reemplazo del icono de una PWA previamente instalada; importación J6 y persistencia offline no certificados.
+- **Archivos MASTER/SDC:** sin cambios.
+
+## Reempaque v0.46.9 — icono SIAL LAB
+- Corregido nombre del manifiesto (antes v0.46.8).
+- Icono azul marino con SIAL blanco, basado en la referencia visual del usuario.
+- No se modifica la lógica de juego respecto al ZIP v0.46.9 original.
+- Requiere publicar y reinstalar/actualizar PWA para ver icono nuevo; Android puede mantener el anterior en caché.

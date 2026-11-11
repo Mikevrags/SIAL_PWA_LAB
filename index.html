@@ -634,7 +634,41 @@ input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus
 </style><style id="sial463-touch">
 #sialPickLayer{position:fixed;inset:0;background:#000b;z-index:2147483645;display:flex;align-items:center;justify-content:center;padding:16px}
 #sialPickLayer[hidden]{display:none!important}.sial-pick-dialog{background:#142338;color:white;border:2px solid #4d86bc;border-radius:14px;padding:20px;width:min(760px,96vw);max-height:90dvh;overflow:auto;box-shadow:0 15px 55px #000c}.sial-pick-dialog h2{margin:0 0 12px;font-size:clamp(20px,2.4vw,28px)}.sial-pick-sub{color:#c8d6e6;font-size:16px}.sial-pick-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.sial-pick-options button{min-height:65px;background:#07549a;border:1px solid #7ab3e5;border-radius:9px;color:white;font-weight:800;font-size:clamp(15px,2vw,22px)}.sial-pick-options button:active{background:#e7ad00;color:#081d35}.sial-pick-footer{display:flex;justify-content:flex-end;margin-top:15px}.sial-pick-cancel{background:#45566b;color:white;padding:10px 25px;border-radius:8px}.sial-edit-id,.sial-edit-name{display:block;width:95%;margin:5px 0;background:#071b31!important;color:white!important;border:1px solid #71a9d8;padding:7px;border-radius:6px}
-</style><style id="v0466-frozen-controls">#extraActions #finishGame[hidden]{display:none!important}.actions-panel .secondary-controls #start{background:#f7c600;color:#09223d;font-weight:900}.actions-panel .actions #extraActions:not([hidden]){grid-template-columns:repeat(3,minmax(0,1fr))!important}</style></head><body>
+</style><style id="v0466-frozen-controls">#extraActions #finishGame[hidden]{display:none!important}.actions-panel .secondary-controls #start{background:#f7c600;color:#09223d;font-weight:900}.actions-panel .actions #extraActions:not([hidden]){grid-template-columns:repeat(3,minmax(0,1fr))!important}</style><style id="sial-v04610-right-button-size-only">
+/* Prueba v0.46.10: únicamente altura de botones derechos igual a ficha A2. */
+body.view-a2 .actions-panel .actions{
+  grid-template-rows:repeat(4,var(--sial-player-tile-height,48px)) auto auto!important;
+  align-content:start;
+  overflow-y:auto!important;
+}
+body.view-a2 .actions-panel .actions>button[data-points],
+body.view-a2 .actions-panel .actions>button[data-action],
+body.view-a2 .actions-panel .actions>.action-pair>button{
+  height:var(--sial-player-tile-height,48px)!important;
+  min-height:var(--sial-player-tile-height,48px)!important;
+  max-height:var(--sial-player-tile-height,48px)!important;
+}
+</style>
+<script id="sial-v04610-measure-right-buttons">
+(function(){
+  function sync(){
+    var tile=document.querySelector('body.view-a2 .rosters-panel .court-grid .player');
+    if(!tile)return;
+    var h=tile.getBoundingClientRect().height;
+    if(h>0)document.documentElement.style.setProperty('--sial-player-tile-height',h+'px');
+  }
+  window.addEventListener('DOMContentLoaded',function(){
+    sync();
+    if(window.ResizeObserver){
+      var roster=document.querySelector('.rosters-panel .court-grid');
+      if(roster)new ResizeObserver(sync).observe(roster);
+    }
+    window.addEventListener('resize',sync);
+    new MutationObserver(sync).observe(document.body,{attributes:true,attributeFilter:['class']});
+  });
+})();
+</script>
+</head><body>
 <header><div><img src="sial-logo.png" alt="Logo SIAL" style="height:40px;max-width:55px;object-fit:contain;float:left;margin-right:8px"><h1>SIAL BASKET · v0.46.9</h1><small>Pruebas sin login · Datos locales · NO OFICIAL</small></div><div class="possession-hud"><button id="posA" class="pos-arrow" title="Posesión alterna A" aria-label="Posesión alterna A">◀</button><button id="posB" class="pos-arrow" title="Posesión alterna B" aria-label="Posesión alterna B">▶</button></div><span class="hud-side" id="hudA"><b id="hudTeamA">EQUIPO A</b><small>F.E. <strong id="foulsA">0</strong> · T.M. <strong id="timeoutsA">0</strong></small></span><span class="hud-side" id="hudB"><b id="hudTeamB">EQUIPO B</b><small>F.E. <strong id="foulsB">0</strong> · T.M. <strong id="timeoutsB">0</strong></small></span><span id="saveStatus">Guardado local</span><div class="match-hud"><div class="score" id="score">0 — 0</div><span id="period">CUARTO 1</span><div class="clock" id="clock">10:00</div></div></header><div id="quarterEndNotice" hidden role="status">FIN DE CUARTO</div><main>
 <div class="bar" id="importBar"><label>Partido <select id="game"></select></label><button id="loadRoster">Importar jornada (JSON)</button><a href="ROSTERS_EJEMPLO_SIN_JUGADORES.json" download="ROSTERS_EJEMPLO_SIN_JUGADORES.json" style="color:#fff;white-space:nowrap;font-size:12px">Descargar JSON de ejemplo (vacío)</a><input accept=".json,application/json" hidden="" id="rosterFile" type="file" multiple/><button id="export">Exportar acta JSON</button><button id="csv">Exportar eventos CSV</button></div>
 <div class="warning" id="notice" style="margin-bottom:10px">J5: 12 partidos del archivo recibido; J4 se conserva como histórico (J4-6E no se jugó). Los rosters deben importarse; no asignar PersonaID ficticios.</div>
