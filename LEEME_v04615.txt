@@ -1,0 +1,4 @@
+SIAL v0.46.15 — PRUEBA. Base v0.46.14 respaldada.
+Correcciones: sustituciones entre cuartos sin participación anticipada, casillas en SUST, color equipo en sustitución especial, actualización versión/caché.
+NO BORRAR almacenamiento local; exportar JSON antes de reinstalar PWA.
+La barra superior Windows puede conservar nombre de instalación anterior hasta reinstalación.
