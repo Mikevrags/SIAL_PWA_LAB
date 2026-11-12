@@ -1,0 +1,1 @@
+SIAL v0.46.12 PRUEBA. Base congelada v0.46.11. Cambios: observaciones, participación 4 cuartos y titulares, restricción en cancha, selección, reinicio reversible. No publicado en GitHub. Verificar pruebas reales. No subir archivos index_v04611_CONGELADO.html ni respaldos al sitio si no son necesarios.
