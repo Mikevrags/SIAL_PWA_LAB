@@ -1,0 +1,1 @@
+SIAL v0.46.17 PRUEBAS: menus neutrales verdes para TIPO DE FOUL y TIROS LIBRES CONCEDIDOS; colores A rojo B azul en lanzador/sustitucion especial; confirmacion de sustitucion integrada sin bloqueo de overlay. Rosters y rol de arbitros requieren validacion SDC y archivos de jornada. No publicado.
