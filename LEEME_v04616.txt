@@ -1,0 +1,1 @@
+SIAL v0.46.16 PRUEBA. Solo: color equipo A azul / B rojo en dos submenus y cuatro casillas verticales de participación en ambos. Sin publicar.
