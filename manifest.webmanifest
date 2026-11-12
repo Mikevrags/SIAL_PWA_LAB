@@ -1,7 +1,7 @@
 {
-  "name": "SIAL LAB v0.46.13",
-  "short_name": "SIAL LAB",
-  "start_url": "./index.html?v=04613",
+  "name": "SIAL LAB v0.46.14",
+  "short_name": "SIAL v0.46.14",
+  "start_url": "./index.html?v=04614",
   "scope": "./",
   "display": "standalone",
   "orientation": "landscape",
@@ -9,16 +9,17 @@
   "theme_color": "#062a57",
   "icons": [
     {
-      "src": "icon-192.png?v=04613-sial",
+      "src": "icon-192.png?v=04614-sial",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon-512.png?v=04613-sial",
+      "src": "icon-512.png?v=04614-sial",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     }
-  ]
+  ],
+  "id": "./index.html?v=04614"
 }

@@ -1,0 +1,5 @@
+SIAL v0.46.14 — PRUEBA
+Base v0.46.13 intacta en ZIP previo.
+Cambios: color del equipo lanzador (contrario al infractor); lanzador solo en cancha; sustitución especial confirmada y registrada; blanco en periodos concluidos sin participación; título y caché actualizados.
+El título de una PWA ya instalada puede requerir reinstalar el acceso directo. Antes exportar actas JSON y NO borrar datos locales.
+No publicado en GitHub.
