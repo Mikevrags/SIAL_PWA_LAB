@@ -1,0 +1,1 @@
+Prueba LAB: alineaciones por periodo, colores y sustituciones pendientes hasta inicio. Respaldar JSON antes de actualizar. Partidos históricos sin alineaciones por periodo requieren revisión; no inferir titulares. Validación en cancha pendiente.
