@@ -1,0 +1,3 @@
+SIAL v0.46.19 — LAB, no publicar como definitiva sin prueba funcional.
+Cambios: botones verdes, suspensión con motivo y cierre JSON, desempate por puntos del último cuarto, modalidad 3x3 con selección de acta y prórroga.
+Pendientes: empate también en último cuarto; reglas disciplinarias 3x3 y posesión automáticas requieren prueba; reloj corrido y sustituciones requieren prueba en dispositivo; acta física no modificada. Categorías iniciales inferidas de cabecera SDC 19-20 y 17-18. Pruebas realizadas: sintaxis JS y ZIP, no navegador.
