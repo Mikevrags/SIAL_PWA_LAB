@@ -1,7 +1,7 @@
 {
-  "name": "SIAL LAB v0.46.20",
-  "short_name": "SIAL v0.46.20",
-  "start_url": "./index.html?v=04620",
+  "name": "SIAL LAB v0.46.21",
+  "short_name": "SIAL v0.46.21",
+  "start_url": "./index.html?v=04621",
   "scope": "./",
   "display": "standalone",
   "orientation": "landscape",
