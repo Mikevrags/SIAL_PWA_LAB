@@ -1,0 +1,5 @@
+LAB04: importación JSON por lote para TODOS los partidos de la jornada.
+La plantilla J7 está VACÍA deliberadamente: no contiene jugadores oficiales.
+Importar solo rosters con evidencia validada.
+Partidos con eventos existentes quedan BLOQUEADOS para impedir desalineación de históricos.
+No modifica MASTER ni GitHub.

@@ -806,7 +806,7 @@ body.view-a2 .actions-panel .actions #observaciones{font-size:clamp(9px,.95vw,13
 .sial-special-dialog .sial-special-confirmation{background:#0c3550;border:2px solid #f3bf24;border-radius:10px;padding:12px;margin-top:12px}
 .sial-special-dialog .sial-special-confirmation button{padding:9px 16px;border-radius:7px;margin-right:10px;color:white;background:#0a62af}
 </style><style>.v19-green .sial-pick-options button{background:#16803d!important;border-color:#5cba78!important}#one3[hidden]{display:none!important}body .actions [data-points="3"][hidden]{display:none!important}</style></head><body>
-<header><div><img src="sial-logo.png" alt="Logo SIAL" style="height:40px;max-width:55px;object-fit:contain;float:left;margin-right:8px"><h1>SIAL BASKET · v0.46.21 · LAB03</h1><small>Pruebas sin login · Datos locales · NO OFICIAL</small></div><div class="possession-hud"><button id="posA" class="pos-arrow" title="Posesión alterna A" aria-label="Posesión alterna A">◀</button><button id="posB" class="pos-arrow" title="Posesión alterna B" aria-label="Posesión alterna B">▶</button></div><span class="hud-side" id="hudA"><b id="hudTeamA">EQUIPO A</b><small>F.E. <strong id="foulsA">0</strong> · T.M. <strong id="timeoutsA">0</strong></small></span><span class="hud-side" id="hudB"><b id="hudTeamB">EQUIPO B</b><small>F.E. <strong id="foulsB">0</strong> · T.M. <strong id="timeoutsB">0</strong></small></span><span id="saveStatus">Guardado local</span><div class="match-hud"><div class="score" id="score">0 — 0</div><span id="period">CUARTO 1</span><div class="clock" id="clock">10:00</div></div></header><div id="quarterEndNotice" hidden role="status">FIN DE CUARTO</div><main>
+<header><div><img src="sial-logo.png" alt="Logo SIAL" style="height:40px;max-width:55px;object-fit:contain;float:left;margin-right:8px"><h1>SIAL BASKET · v0.46.21 · LAB04</h1><small>Pruebas sin login · Datos locales · NO OFICIAL</small></div><div class="possession-hud"><button id="posA" class="pos-arrow" title="Posesión alterna A" aria-label="Posesión alterna A">◀</button><button id="posB" class="pos-arrow" title="Posesión alterna B" aria-label="Posesión alterna B">▶</button></div><span class="hud-side" id="hudA"><b id="hudTeamA">EQUIPO A</b><small>F.E. <strong id="foulsA">0</strong> · T.M. <strong id="timeoutsA">0</strong></small></span><span class="hud-side" id="hudB"><b id="hudTeamB">EQUIPO B</b><small>F.E. <strong id="foulsB">0</strong> · T.M. <strong id="timeoutsB">0</strong></small></span><span id="saveStatus">Guardado local</span><div class="match-hud"><div class="score" id="score">0 — 0</div><span id="period">CUARTO 1</span><div class="clock" id="clock">10:00</div></div></header><div id="quarterEndNotice" hidden role="status">FIN DE CUARTO</div><main>
 <div class="bar" id="importBar"><label>Partido <select id="game"></select></label><button id="loadRoster">Importar jornada (JSON)</button><a href="ROSTERS_EJEMPLO_SIN_JUGADORES.json" download="ROSTERS_EJEMPLO_SIN_JUGADORES.json" style="color:#fff;white-space:nowrap;font-size:12px">Descargar JSON de ejemplo (vacío)</a><input accept=".json,application/json" hidden="" id="rosterFile" type="file" multiple/><button id="export">Exportar acta JSON</button><button id="csv">Exportar eventos CSV</button></div>
 <div class="warning" id="notice" style="margin-bottom:10px">J7: 7 partidos del rol Master (20 y 21 nov.); oficiales pendientes de asignación. Jornadas anteriores conservadas. Importar rosters antes de iniciar; no inventar ID_SIAL.</div>
 <nav class="viewtabs"><button data-view="a1">A1 · Inicio</button><button class="active" data-view="a2">A2 · Game Log</button><button data-view="a3">A3 · Cancha</button><span id="gameSlot"></span></nav><div class="cols"><section class="panel rosters-panel"><div class="teamname" id="team0"></div><div class="tag" id="status0"></div><div id="roster0"></div><div class="teamname" id="team1"></div><div class="tag" id="status1"></div><div id="roster1"></div></section>
@@ -1102,6 +1102,67 @@ $('rosterFile').onchange=async e=>{
  alert('Importación terminada.\nPartidos: '+valid.length+'\nJugadores: '+loaded+'\nPartido seleccionado: '+game.id+' (sin cambios)'+(errors.length?'\n\nArchivos omitidos:\n'+errors.join('\n'):''));
  e.target.value='';
 };
+
+
+// LAB04: importación por lote para todos los partidos, sin generar identidades ni jugadores.
+(function(){
+const bar=document.getElementById('importBar');
+const bulk=document.createElement('button');bulk.type='button';bulk.textContent='IMPORTAR ROSTERS JORNADA';bulk.title='Importar un JSON con rosters por partido para todos los juegos';bar.appendChild(bulk);
+const input=document.createElement('input');input.type='file';input.accept='.json,application/json';input.hidden=true;bar.appendChild(input);
+const template=document.createElement('button');template.type='button';template.textContent='PLANTILLA J7 (VACÍA)';bar.appendChild(template);
+const norm=v=>String(v||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+const isTest=p=>/FICTICIO|SIMULADO|MAQUETA|SOLO.PRUEBA/.test(String(p.estado||'').toUpperCase())||/JUGADOR FICTICIO/i.test(p.nombre||'');
+const allowed=new Map(games.map(g=>[g.id,g]));
+template.onclick=()=>{
+ const list=games.filter(g=>g.id.includes('-J7-')).map(g=>({id_game:g.id,equipos:g.teams.map(nombre=>({nombre,jugadores:[]}))}));
+ download('SIAL_J7_PLANTILLA_ROSTERS_PENDIENTES.json',JSON.stringify({tipo:'SIAL_ROSTERS_POR_PARTIDO',estado:'SIN_JUGADORES_VERIFICADOS',partidos:list},null,2),'application/json');
+};
+bulk.onclick=()=>input.click();
+input.onchange=async e=>{
+ try{
+ const file=e.target.files[0];if(!file)return;
+ const data=JSON.parse(await file.text());
+ const entries=Array.isArray(data.partidos)?data.partidos:Array.isArray(data)?data:[data];
+ const updates=[],issues=[],used=new Set();
+ for(const item of entries){
+  const g=allowed.get(item.id_game);
+  if(!g){issues.push(String(item.id_game||'?')+': partido desconocido');continue;}
+  if(used.has(g.id)){issues.push(g.id+': duplicado');continue;}used.add(g.id);
+  if(!Array.isArray(item.equipos)||item.equipos.length!==2){issues.push(g.id+': faltan equipos');continue;}
+  const sides=[null,null];
+  for(let t=0;t<2;t++){
+   const eq=item.equipos[t];
+   // No aceptar coincidencias aproximadas ni permutas de equipos.
+   if(norm(eq.nombre)!==norm(g.teams[t])){issues.push(g.id+': equipo '+(t+1)+' no coincide con rol');continue;}
+   if(!Array.isArray(eq.jugadores)||eq.jugadores.length>12){issues.push(g.id+': roster '+(t+1)+' inválido');continue;}
+   if(!eq.jugadores.length){continue;} // vacío no borra jugadores existentes
+   const ds=new Set(),rr=[];let error='';
+   for(const p of eq.jugadores){
+    if(!String(p.nombre||'').trim()||p.dorsal===undefined||p.dorsal===null||!String(p.dorsal).trim()){error='nombre o dorsal faltante';break;}
+    const d=String(p.dorsal).trim();if(ds.has(d)){error='dorsal duplicado';break;}ds.add(d);
+    if(isTest(p)){error='datos ficticios';break;}
+    rr.push({nombre:String(p.nombre).trim(),dorsal:d,estado:p.estado||'PROVISIONAL',persona_id:p.persona_id||null,id_sial:p.id_sial||p.ID_SIAL||null,id_provisional:p.id_provisional||null,equipo_temporada_id:p.equipo_temporada_id||eq.equipo_temporada_id||null});
+   }
+   if(error){issues.push(g.id+': equipo '+(t+1)+' '+error);continue;}
+   sides[t]=rr;
+  }
+  if(sides.some(Boolean))updates.push({g,sides});
+ }
+ if(!updates.length){alert('Sin rosters válidos para cargar.\n'+issues.join('\n'));return;}
+ const active=updates.filter(({g})=>{try{return (JSON.parse(localStorage.getItem(KEY+g.id))?.events||[]).length>0;}catch{return false;}});
+ if(active.length){alert('SEGURIDAD: '+active.length+' partido(s) tienen eventos. No se actualizarán sus rosters automáticamente. Exporta el acta y concilia dorsales antes de reemplazar jugadores.');}
+ let total=0,players=0;
+ for(const {g,sides} of updates){
+  let saved;try{saved=JSON.parse(localStorage.getItem(KEY+g.id))||initial();}catch{saved=initial();}
+  if(saved.events?.length){issues.push(g.id+': eventos existentes; actualización bloqueada');continue;}
+  for(let t=0;t<2;t++)if(sides[t]){saved.rosters[t]=sides[t];saved.onCourt[t]=[];players+=sides[t].length;}
+  localStorage.setItem(KEY+g.id,JSON.stringify(saved));total++;
+ }
+ switchGame();
+ alert('Importación JORNADA terminada.\nPartidos actualizados: '+total+'\nJugadores cargados: '+players+'\nPendientes/incidencias: '+issues.length+(issues.length?'\n'+issues.join('\n'):'')+'\nNO se han inventado jugadores.');
+ }catch(err){alert('Error al importar: '+err.message);}finally{input.value='';}
+};
+})();
 
 // Reglas de tiempos fuera aprobadas: 5x5 por mitad; 3x3 por periodo.
 const TIMEOUT_DURATION_5X5=60, TIMEOUT_DURATION_3X3=30;
