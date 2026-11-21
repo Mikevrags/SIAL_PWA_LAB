@@ -1,0 +1,1 @@
+LAB05: nueva importación por GRUPO + NOMBRE EXACTO de equipo para TODOS los partidos J7. No incluye jugadores reales. Bloquea partidos con eventos y rosters existentes. Botón AUDITAR J7 exporta diagnóstico local. No es producción. No modifica MASTER.

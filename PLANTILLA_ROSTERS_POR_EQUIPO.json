@@ -1,0 +1,16 @@
+{
+  "tipo": "SIAL_ROSTERS_POR_EQUIPO",
+  "estado": "PLANTILLA_SIN_JUGADORES",
+  "equipos": [
+    {
+      "grupo": "E",
+      "nombre": "ACAD LYCANS TOÑO",
+      "jugadores": []
+    },
+    {
+      "grupo": "E",
+      "nombre": "ACAD REDBULLS JERRY",
+      "jugadores": []
+    }
+  ]
+}

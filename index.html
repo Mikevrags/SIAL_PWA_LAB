@@ -806,7 +806,7 @@ body.view-a2 .actions-panel .actions #observaciones{font-size:clamp(9px,.95vw,13
 .sial-special-dialog .sial-special-confirmation{background:#0c3550;border:2px solid #f3bf24;border-radius:10px;padding:12px;margin-top:12px}
 .sial-special-dialog .sial-special-confirmation button{padding:9px 16px;border-radius:7px;margin-right:10px;color:white;background:#0a62af}
 </style><style>.v19-green .sial-pick-options button{background:#16803d!important;border-color:#5cba78!important}#one3[hidden]{display:none!important}body .actions [data-points="3"][hidden]{display:none!important}</style></head><body>
-<header><div><img src="sial-logo.png" alt="Logo SIAL" style="height:40px;max-width:55px;object-fit:contain;float:left;margin-right:8px"><h1>SIAL BASKET · v0.46.21 · LAB04</h1><small>Pruebas sin login · Datos locales · NO OFICIAL</small></div><div class="possession-hud"><button id="posA" class="pos-arrow" title="Posesión alterna A" aria-label="Posesión alterna A">◀</button><button id="posB" class="pos-arrow" title="Posesión alterna B" aria-label="Posesión alterna B">▶</button></div><span class="hud-side" id="hudA"><b id="hudTeamA">EQUIPO A</b><small>F.E. <strong id="foulsA">0</strong> · T.M. <strong id="timeoutsA">0</strong></small></span><span class="hud-side" id="hudB"><b id="hudTeamB">EQUIPO B</b><small>F.E. <strong id="foulsB">0</strong> · T.M. <strong id="timeoutsB">0</strong></small></span><span id="saveStatus">Guardado local</span><div class="match-hud"><div class="score" id="score">0 — 0</div><span id="period">CUARTO 1</span><div class="clock" id="clock">10:00</div></div></header><div id="quarterEndNotice" hidden role="status">FIN DE CUARTO</div><main>
+<header><div><img src="sial-logo.png" alt="Logo SIAL" style="height:40px;max-width:55px;object-fit:contain;float:left;margin-right:8px"><h1>SIAL BASKET · v0.46.21 · LAB05</h1><small>Pruebas sin login · Datos locales · NO OFICIAL</small></div><div class="possession-hud"><button id="posA" class="pos-arrow" title="Posesión alterna A" aria-label="Posesión alterna A">◀</button><button id="posB" class="pos-arrow" title="Posesión alterna B" aria-label="Posesión alterna B">▶</button></div><span class="hud-side" id="hudA"><b id="hudTeamA">EQUIPO A</b><small>F.E. <strong id="foulsA">0</strong> · T.M. <strong id="timeoutsA">0</strong></small></span><span class="hud-side" id="hudB"><b id="hudTeamB">EQUIPO B</b><small>F.E. <strong id="foulsB">0</strong> · T.M. <strong id="timeoutsB">0</strong></small></span><span id="saveStatus">Guardado local</span><div class="match-hud"><div class="score" id="score">0 — 0</div><span id="period">CUARTO 1</span><div class="clock" id="clock">10:00</div></div></header><div id="quarterEndNotice" hidden role="status">FIN DE CUARTO</div><main>
 <div class="bar" id="importBar"><label>Partido <select id="game"></select></label><button id="loadRoster">Importar jornada (JSON)</button><a href="ROSTERS_EJEMPLO_SIN_JUGADORES.json" download="ROSTERS_EJEMPLO_SIN_JUGADORES.json" style="color:#fff;white-space:nowrap;font-size:12px">Descargar JSON de ejemplo (vacío)</a><input accept=".json,application/json" hidden="" id="rosterFile" type="file" multiple/><button id="export">Exportar acta JSON</button><button id="csv">Exportar eventos CSV</button></div>
 <div class="warning" id="notice" style="margin-bottom:10px">J7: 7 partidos del rol Master (20 y 21 nov.); oficiales pendientes de asignación. Jornadas anteriores conservadas. Importar rosters antes de iniciar; no inventar ID_SIAL.</div>
 <nav class="viewtabs"><button data-view="a1">A1 · Inicio</button><button class="active" data-view="a2">A2 · Game Log</button><button data-view="a3">A3 · Cancha</button><span id="gameSlot"></span></nav><div class="cols"><section class="panel rosters-panel"><div class="teamname" id="team0"></div><div class="tag" id="status0"></div><div id="roster0"></div><div class="teamname" id="team1"></div><div class="tag" id="status1"></div><div id="roster1"></div></section>
@@ -1162,6 +1162,38 @@ input.onchange=async e=>{
  alert('Importación JORNADA terminada.\nPartidos actualizados: '+total+'\nJugadores cargados: '+players+'\nPendientes/incidencias: '+issues.length+(issues.length?'\n'+issues.join('\n'):'')+'\nNO se han inventado jugadores.');
  }catch(err){alert('Error al importar: '+err.message);}finally{input.value='';}
 };
+})();
+
+
+// LAB05: rosters por equipo y grupo, sin duplicar jugadores por partido.
+(function(){
+const bar=document.getElementById('importBar');if(!bar)return;
+const btn=document.createElement('button');btn.type='button';btn.textContent='IMPORTAR ROSTERS POR EQUIPO';bar.appendChild(btn);
+const file=document.createElement('input');file.type='file';file.accept='.json,application/json';file.hidden=true;bar.appendChild(file);btn.onclick=()=>file.click();
+const report=document.createElement('button');report.type='button';report.textContent='AUDITAR J7';bar.appendChild(report);
+const norm=x=>String(x??'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toUpperCase().replace(/[^A-Z0-9]/g,'');
+const j7=games.filter(g=>g.jornada===7);
+function getSaved(g){try{return JSON.parse(localStorage.getItem(KEY+g.id))||initial()}catch{return initial()}}
+report.onclick=()=>{const rows=j7.map(g=>({partido:g.id,grupo:g.group,equipos:g.teams.map((name,t)=>({nombre:name,jugadores:getSaved(g).rosters?.[t]?.length||0})),eventos:getSaved(g).events?.length||0}));download('SIAL_J7_AUDITORIA_LOCAL.json',JSON.stringify({estado:'DIAGNOSTICO_LOCAL_NO_VALIDACION_OFICIAL',partidos:rows},null,2),'application/json')};
+file.onchange=async()=>{try{
+ const f=file.files?.[0];if(!f)return;const raw=JSON.parse(await f.text());const entries=raw.equipos;if(!Array.isArray(entries))throw Error('Se requiere {"equipos":[{"grupo":"E","nombre":"...","jugadores":[]}]}');
+ const warnings=[],proposals=[];const seen=new Set();
+ for(const e of entries){const grp=String(e.grupo||'').trim().toUpperCase(),name=norm(e.nombre),key=grp+'|'+name;
+ if(!grp||!name||seen.has(key)){warnings.push('Grupo/nombre faltante o equipo repetido: '+String(e.nombre));continue}seen.add(key);
+ if(!Array.isArray(e.jugadores)||!e.jugadores.length||e.jugadores.length>12){warnings.push('Roster vacío o excede 12: '+e.nombre);continue}
+ const ds=new Set(),ns=new Set(),players=[];let bad='';
+ for(const j of e.jugadores){const dorsal=String(j.dorsal??'').trim(),nombre=String(j.nombre??'').trim();if(!dorsal||!nombre){bad='dorsal/nombre incompleto';break}if(ds.has(dorsal)||ns.has(norm(nombre))){bad='duplicado de dorsal o nombre';break}ds.add(dorsal);ns.add(norm(nombre));if(/FICTICIO|MAQUETA|SIMULADO/i.test(nombre+' '+(j.estado||''))){bad='jugador ficticio';break}
+ players.push({nombre,dorsal,estado:j.estado||'LECTURA_PRELIMINAR',persona_id:j.persona_id||null,id_sial:j.id_sial||null,id_provisional:j.id_provisional||null,equipo_temporada_id:j.equipo_temporada_id||null});}
+ if(bad){warnings.push(e.nombre+': '+bad);continue}
+ const matches=j7.flatMap(g=>g.teams.map((n,t)=>({g,t,n}))).filter(x=>x.g.group===grp&&norm(x.n)===name);
+ if(!matches.length){warnings.push('Sin coincidencia exacta grupo/equipo: '+grp+' '+e.nombre);continue}
+ for(const {g,t} of matches){const saved=getSaved(g);if(saved.events?.length){warnings.push(g.id+': tiene eventos; NO se modifica');continue}if(saved.rosters?.[t]?.length){warnings.push(g.id+': roster existente; NO se sobrescribe');continue}proposals.push({g,t,players})}
+ }
+ if(!proposals.length){alert('Sin cambios seguros.\n'+warnings.join('\n'));return}
+ if(!confirm('Se cargarán '+proposals.length+' rosters de partido desde datos suministrados, sin validación oficial. NO se tocarán eventos ni rosters existentes. ¿Continuar?'))return;
+ let done=0;for(const {g,t,players} of proposals){const saved=getSaved(g);if(saved.events?.length||saved.rosters?.[t]?.length)continue;saved.rosters[t]=players;saved.onCourt[t]=[];localStorage.setItem(KEY+g.id,JSON.stringify(saved));done++}
+ switchGame();alert('Rosters de partido cargados: '+done+'\nAdvertencias: '+warnings.length+(warnings.length?'\n'+warnings.join('\n'):''));
+ }catch(err){alert('Error de importación: '+err.message)}finally{file.value=''}};
 })();
 
 // Reglas de tiempos fuera aprobadas: 5x5 por mitad; 3x3 por periodo.
