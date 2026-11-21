@@ -1,0 +1,7 @@
+SIAL PWA LAB 03
+1. Acta imprimible 3x3: marcador progresivo 1 a 22 (22 casillas).
+2. La regla de victoria a 21 NO fue modificada.
+3. Los rosters J7 NO están incluidos: faltan datos validados de jugadores.
+4. No usar jugadores LAB para partidos oficiales.
+5. No modifica MASTER ni GitHub.
+6. Impresión es borrador, no planilla oficial definitiva.
